@@ -1,0 +1,61 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.create__main__container {
+    background-color: $primary;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    position: relative;
+    @include flex-container(column, center, center);
+    color: floralwhite;
+
+    &>div:nth-child(1) {
+        width: 90%;
+        gap: 1rem;
+        @include flex-container(column, center, center);
+
+        .team__name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            @include flex-container(row, center, center);
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .lives__container {
+            font-size: 0.8rem;
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(row, flex-end, center);
+            gap: 0.25rem;
+
+            .heart__container {
+                gap: 0.25rem;
+                font-size: 1.3rem;
+                @include flex-container(row, center, center);
+                font-weight: 600;
+            }
+        }
+
+        .next__container {
+            width: 100%;
+            gap: 1rem;
+            text-align: center;
+            @include flex-container(column, center, center);
+            &>p:nth-child(1) {
+                font-weight: 500;
+            }
+            &>p:nth-child(3) {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

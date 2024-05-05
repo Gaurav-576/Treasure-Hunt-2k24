@@ -1,0 +1,1 @@
+export const BASE_URL = "https://treasurehuntapi-lbagduga2a-uc.a.run.app/api/v1/"

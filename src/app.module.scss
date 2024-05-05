@@ -1,0 +1,95 @@
+@import './styles/colors';
+@import './styles/fonts';
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.app__main__container {
+    background-color: $primary;
+    // width: 100vw;
+    min-width: 320px;
+    max-width: 480px;
+    height: 100vh;
+    overflow-y: hidden;
+    @include flex-container(column, center, center);
+    position: relative;
+
+    &>div:nth-child(1) {
+        width: 90%;
+        @include flex-container(column, center, center);
+        gap: 1rem;
+
+        &>p {
+            font-family: $poppins-sans;
+            font-size: 2rem;
+            font-weight: 600;
+            color: floralwhite;
+        }
+
+        &>input {
+            background-color: inherit;
+            border: 1px solid $light;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            width: 80%;
+            color: floralwhite;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &>button {
+            border: 1px solid $light;
+            background-color: $action;
+            padding: 0.5rem 0;
+            width: 50%;
+            font-weight: 500;
+            font-family: $poppins-sans;
+            border-radius: 0.5rem;
+        }
+
+        &>div:nth-child(n) {
+            @include flex-container(row, center, center);
+            gap: 1rem;
+
+            &>button:nth-child(n) {
+                border: 1px solid $light;
+                background-color: $action;
+                padding: 0.5rem 0.8rem;
+                // width: 30%;
+                font-weight: 500;
+                font-family: $poppins-sans;
+                border-radius: 0.5rem;
+            }
+        }
+
+        &:focus {
+            border: none;
+        }
+    }
+
+    &>div:nth-child(2) {
+        position: absolute;
+        top: 5%;
+        height: min-content;
+
+        &>div:first-child {
+
+            &>img {
+                height: 12rem;
+            }
+        }
+
+        &>p {
+            font-family: $poppins-sans;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+
+}

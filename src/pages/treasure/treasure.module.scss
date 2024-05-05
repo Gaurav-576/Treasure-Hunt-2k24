@@ -1,0 +1,114 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
+@mixin flex-container($direction: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.create__main__container {
+    background-color: $primary;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    @include flex-container(column, flex-start, center);
+    color: floralwhite;
+
+    &>div:nth-child(1) {
+        width: 90%;
+        gap: 1rem;
+        @include flex-container(column, flex-start, center);
+
+        
+        .team__name {
+            &>div:nth-child(1) {
+                @include flex-container(row, center, center);
+                gap: 1rem;
+            }
+
+            font-weight: 400;
+            font-size: 1.2rem;
+            @include flex-container(column, flex-start, center);
+            width: 100%;
+            gap: 1rem;
+            // flex: 1;
+            padding: 2rem 0;
+        }
+
+        .treasure__container {
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(column, flex-start, center);
+            border: 2px solid $light;
+            padding: 8px;
+            border-radius: 1rem;
+        }
+
+        .lives__container {
+            width: 100%;
+            text-align: right;
+            padding: 1rem 0;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .question__container {
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(column, flex-start, center);
+
+            .image__container {
+                width: 90%;
+                padding: 1rem;
+                @include flex-container(row, center, center);
+            }
+        }
+
+        .answer__container {
+            width: 100%;
+            gap: 1rem;
+            @include flex-container(column, center, center);
+
+            &>input {
+                background-color: inherit;
+                border: 0;
+                border-bottom: 1px solid $light;
+                padding: 1rem 0.8rem;
+                width: 75%;
+                font-weight: 400;
+                color: floralwhite;
+                font-size: 0.9rem;
+
+                &:focus {
+                    outline: none;
+                    // border-bottom: 1px;
+                }
+            }
+
+            &>button {
+                background-color: $action;
+                border: 1px solid $light;
+                margin-top: 0.5rem;
+                font-family: $poppins-sans;
+                font-weight: 500;
+                width: 50%;
+                border-radius: 0.5rem;
+                padding: 0.5rem 0;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.loader__styles {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include flex-container(column, center, center);
+}
